@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f3f8f7" />
+    <meta name="description" content="Try the PhishGuard local demo AI agent for phishing and scam message analysis." />
+    <title>Demo AI Agent — PhishGuard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="agent.css" />
+    <script src="agent.js" defer></script>
+  </head>
+  <body class="agent-page">
+    <header class="agent-header">
+      <a class="agent-brand" href="index.html" aria-label="PhishGuard home">
+        <span class="agent-brand-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="M16 3.6 26 7.4v7.3c0 6.4-4.1 11.3-10 13.7-5.9-2.4-10-7.3-10-13.7V7.4l10-3.8Z" stroke="currentColor" stroke-width="2.3" stroke-linejoin="round"/><path d="m11.4 15.9 3 3 6.3-6.4" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span>phish<span>guard</span></span>
+      </a>
+      <div class="agent-header-right">
+        <span class="demo-ready"><i></i> Demo mode ready</span>
+        <a class="back-link" href="index.html#checker"><span aria-hidden="true">←</span> Message checker</a>
+      </div>
+    </header>
+
+    <main class="agent-shell">
+      <aside class="agent-intro">
+        <div class="simulation-label"><span class="simulation-icon">✳</span> LOCAL SIMULATION</div>
+        <h1>Meet your<br /><span>message safety</span><br />agent.</h1>
+        <p class="intro-copy">Paste a suspicious email, text, or link. The demo agent will walk through the risk signals and give you a practical next step.</p>
+
+        <div class="capability-list">
+          <div class="capability"><span class="capability-number">01</span><span class="capability-icon icon-context">⌕</span><span><b>Reads the context</b><small>Checks urgency, requests, and wording</small></span></div>
+          <div class="capability"><span class="capability-number">02</span><span class="capability-icon icon-link">↗</span><span><b>Looks at visible links</b><small>Explains domain warning signs</small></span></div>
+          <div class="capability"><span class="capability-number">03</span><span class="capability-icon icon-advice">✓</span><span><b>Suggests a safe next step</b><small>Verify through a trusted channel</small></span></div>
+        </div>
+
+        <div class="simulation-note"><span class="note-lock" aria-hidden="true">◈</span><p><b>About this demo</b><br />This page simulates an AI chat using the project's local NLP and URL analyzer. It does not call a hosted AI model.</p></div>
+      </aside>
+
+      <section class="chat-card" aria-label="PhishGuard demo agent chat">
+        <div class="chat-header">
+          <div class="chat-avatar" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="M16 3.6 26 7.4v7.3c0 6.4-4.1 11.3-10 13.7-5.9-2.4-10-7.3-10-13.7V7.4l10-3.8Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="m11.4 15.9 3 3 6.3-6.4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="chat-heading"><h2>PhishGuard <span>Demo AI Agent</span></h2><p><i></i> Local analysis · No API key required</p></div>
+          <button class="clear-chat" id="clear-chat" type="button" aria-label="Clear conversation" title="Clear conversation"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M10 11v6m4-6v6M6 7l1 13h10l1-13M9 7V4h6v3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        </div>
+
+        <div class="chat-log" id="chat-log" role="log" aria-live="polite" aria-relevant="additions text">
+          <article class="chat-row agent-row welcome-row">
+            <div class="message-avatar" aria-hidden="true">P</div>
+            <div class="message-stack"><div class="message-byline">PhishGuard <span>DEMO AGENT</span></div><div class="agent-bubble welcome-bubble"><p>Hi, I can help you review a suspicious message. Paste the text or link below, and I’ll explain the signals I find.</p><div class="welcome-foot"><span class="welcome-spark">✳</span> I analyze locally and don’t open links.</div></div></div>
+          </article>
+        </div>
+
+        <div class="chat-suggestions" aria-label="Try a fictional email case">
+          <span>FAKE MAIL CASES</span>
+          <button type="button" data-sample="account">Account alert</button>
+          <button type="button" data-sample="code">Prize + code</button>
+          <button type="button" data-sample="delivery">Delivery fee</button>
+          <button type="button" data-sample="lookalike">Lookalike link</button>
+          <button type="button" data-sample="meeting">Meeting update</button>
+        </div>
+
+        <form class="chat-composer" id="chat-form">
+          <label class="sr-only" for="chat-input">Message the demo agent</label>
+          <textarea id="chat-input" maxlength="12000" rows="2" placeholder="Paste a message, email, or URL…"></textarea>
+          <div class="composer-footer"><span id="chat-hint">Enter to send · Shift+Enter for a new line</span><span class="composer-count" id="chat-count">0 / 12,000</span><button class="send-button" id="send-button" type="submit" disabled>Analyze <span aria-hidden="true">↗</span></button></div>
+        </form>
+        <div class="chat-privacy"><span aria-hidden="true">◈</span> Demo messages are analyzed by this project's local backend and are not saved.</div>
+      </section>
+    </main>
+    <footer class="agent-footer"><span>PHISHGUARD · EDUCATIONAL DEMO</span><a href="index.html#how-it-works">How the checks work <span aria-hidden="true">↗</span></a></footer>
+  </body>
+</html>

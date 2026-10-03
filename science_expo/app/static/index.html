@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f4f8f8" />
+    <meta name="description" content="Check suspicious messages and links with PhishGuard's explainable scam analysis agent." />
+    <title>PhishGuard — Message safety, made clearer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="app.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="PhishGuard home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" fill="none"><path d="M16 3.6 26 7.4v7.3c0 6.4-4.1 11.3-10 13.7-5.9-2.4-10-7.3-10-13.7V7.4l10-3.8Z" stroke="currentColor" stroke-width="2.3" stroke-linejoin="round"/><path d="m11.4 15.9 3 3 6.3-6.4" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span>phish<span class="brand-accent">guard</span></span>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="#checker">Message checker</a>
+        <a href="agent.html">Demo agent</a>
+        <a href="#how-it-works">How it works</a>
+      </nav>
+      <a class="header-status agent-page-link" href="agent.html" aria-label="Open the demo AI agent">
+        <span class="status-dot"></span><span>Analysis agent ready</span>
+      </a>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-grid"></div>
+        <div class="hero-copy">
+          <div class="eyebrow hero-eyebrow"><span class="eyebrow-line"></span> A calmer way to check</div>
+          <h1 id="hero-title">Before you click,<br /><span>check the signs.</span></h1>
+          <p>Get a clear, explainable read on suspicious messages and links. Know what to look for, then choose your next step with confidence.</p>
+          <div class="hero-actions"><a class="hero-cta" href="#checker">Check a message <span aria-hidden="true">↓</span></a><a class="hero-cta secondary-cta" href="agent.html">Try demo agent <span aria-hidden="true">↗</span></a></div>
+          <div class="hero-trust"><span class="mini-lock" aria-hidden="true">⌑</span> Private by design <i></i> No account needed</div>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <div class="orb orb-one"></div><div class="orb orb-two"></div>
+          <div class="hero-halo"></div>
+          <div class="hero-shield">
+            <svg viewBox="0 0 176 202" fill="none"><path d="M88 8 157 34v50c0 48-28 86-69 108C47 170 19 132 19 84V34L88 8Z" fill="url(#shieldFill)" stroke="rgba(207,255,246,.7)" stroke-width="2"/><path d="m56 91 21 21 44-46" stroke="#dcfff7" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><defs><linearGradient id="shieldFill" x1="29" y1="17" x2="145" y2="181" gradientUnits="userSpaceOnUse"><stop stop-color="#4be0c2"/><stop offset="1" stop-color="#139d98"/></linearGradient></defs></svg>
+          </div>
+          <div class="float-card float-top"><span class="float-icon mint">✓</span><span><b>Explainable checks</b><small>See the warning signs</small></span></div>
+          <div class="float-card float-bottom"><span class="float-icon blue">⌁</span><span><b>Local analysis</b><small>Your message stays here</small></span></div>
+          <div class="hero-spark spark-one">✳</div><div class="hero-spark spark-two">·</div>
+        </div>
+        <div class="hero-footnote"><span>01</span><span class="footnote-rule"></span><span>Clarity over fear</span></div>
+      </section>
+
+      <section class="checker-section section-wrap" id="checker" aria-labelledby="checker-title">
+        <div class="section-heading">
+          <div>
+            <div class="eyebrow light-eyebrow"><span class="eyebrow-line"></span> Your first line of defense</div>
+            <h2 id="checker-title">Check before you trust.</h2>
+            <p>Paste a message, email, or link. The analysis agent will show you what stands out.</p>
+          </div>
+          <div class="privacy-chip"><span class="privacy-icon" aria-hidden="true">◈</span> <a id="privacy-chip-label" href="agent.html">Checking analysis mode…</a></div>
+        </div>
+
+        <div class="example-row" aria-label="Try an example message">
+          <span class="example-label">Try an example</span>
+          <button class="sample-chip" type="button" data-sample="Your bank account has been temporarily suspended. Verify your password immediately at http://secure-account-check.top/login to restore access."><span class="sample-dot danger-dot"></span>Account alert</button>
+          <button class="sample-chip" type="button" data-sample="Hi, your order #48371 is on its way. Track your delivery at https://www.example.com/orders/48371. Estimated arrival: Thursday."><span class="sample-dot calm-dot"></span>Delivery update</button>
+          <button class="sample-chip" type="button" data-sample="Congratulations! You have won a $500 gift card. Claim your prize today. Reply with your one-time code to verify your identity."><span class="sample-dot warning-dot"></span>Prize message</button>
+        </div>
+
+        <div class="workspace-grid">
+          <section class="input-card" aria-label="Message input">
+            <div class="card-topline"><div class="card-title"><span class="input-icon" aria-hidden="true">✳</span> Message to check</div><span class="format-label">TEXT OR URL</span></div>
+            <label class="sr-only" for="message-input">Paste a suspicious message or website URL</label>
+            <textarea id="message-input" maxlength="12000" placeholder="Paste the message or link here…&#10;&#10;Tip: include the full link and any surrounding message for a more useful result." spellcheck="false"></textarea>
+            <div class="input-meta"><span class="privacy-note"><span aria-hidden="true">▣</span> <span id="privacy-note-text">Checking where analysis runs…</span></span><span id="char-count">0 / 12,000</span></div>
+            <div class="input-actions">
+              <button id="clear-button" class="clear-button" type="button"><span aria-hidden="true">×</span> Clear</button>
+              <button id="analyze-button" class="analyze-button" type="button" disabled><span class="button-label">Analyze message</span><span class="button-arrow" aria-hidden="true">↗</span></button>
+            </div>
+            <div id="form-error" class="form-error" role="alert" hidden></div>
+          </section>
+
+          <section class="report-card" id="report-card" aria-labelledby="report-title" aria-live="polite">
+            <div class="report-topline"><div class="card-title"><span class="report-icon" aria-hidden="true">◉</span> Analysis report</div><span class="live-label"><span></span> READY</span></div>
+            <div id="report-content" class="report-content">
+              <div class="empty-report">
+                <div class="empty-art" aria-hidden="true"><div class="empty-ring ring-back"></div><div class="empty-ring ring-front"></div><div class="empty-shield"><svg viewBox="0 0 40 46" fill="none"><path d="M20 2 36 8v11c0 11-6.5 19.8-16 25C10.5 38.8 4 30 4 19V8l16-6Z" stroke="currentColor" stroke-width="2.5"/><path d="m13 22 5 5 10-11" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+                <h3 id="report-title">Your report will appear here</h3>
+                <p>Paste a message to get a risk read, warning signs, and practical next steps.</p>
+                <div class="risk-legend"><span><i class="legend-dot low"></i> Lower risk</span><span><i class="legend-dot medium"></i> Caution</span><span><i class="legend-dot high"></i> High risk</span></div>
+              </div>
+            </div>
+          </section>
+        </div>
+        <p class="disclaimer"><span aria-hidden="true">ⓘ</span> PhishGuard helps spot common patterns. It can’t verify who sent a message or guarantee a link is safe.</p>
+      </section>
+
+      <section class="how-section" id="how-it-works" aria-labelledby="how-title">
+        <div class="section-wrap how-inner">
+          <div class="how-heading">
+            <div class="eyebrow"><span class="eyebrow-line"></span> Simple by design</div>
+            <h2 id="how-title">A little context.<br /><span>A clearer next step.</span></h2>
+            <p>No mystery score. PhishGuard highlights the patterns behind its result, so you can make the call.</p>
+          </div>
+          <div class="steps-grid">
+            <article class="step-card"><span class="step-number">01</span><div class="step-icon icon-paste" aria-hidden="true">▤</div><h3>Paste it in</h3><p>Share the message or URL that doesn’t feel quite right.</p></article>
+            <article class="step-card"><span class="step-number">02</span><div class="step-icon icon-scan" aria-hidden="true">⌕</div><h3>Check the signals</h3><p>Look for pressure tactics, sensitive requests, and suspicious link details.</p></article>
+            <article class="step-card"><span class="step-number">03</span><div class="step-icon icon-act" aria-hidden="true">↗</div><h3>Choose your next step</h3><p>Use the explanation and safer actions to verify the message calmly.</p></article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer"><a class="brand footer-brand" href="#top"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="M16 3.6 26 7.4v7.3c0 6.4-4.1 11.3-10 13.7-5.9-2.4-10-7.3-10-13.7V7.4l10-3.8Z" stroke="currentColor" stroke-width="2.3" stroke-linejoin="round"/><path d="m11.4 15.9 3 3 6.3-6.4" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>phish<span class="brand-accent">guard</span></span></a><p>Think twice. Verify directly. Stay safe.</p><span class="footer-caption">AN EDUCATIONAL DEMO · 2026</span></footer>
+  </body>
+</html>
